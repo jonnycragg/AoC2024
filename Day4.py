@@ -1,13 +1,10 @@
 import re
 
-
 def readData(file):
     llist = []  # Declare an empty list
     with open(file, 'rt') as myfile:  # Open lorem.txt for reading text.
         for line in myfile:  # For each line of text,
             llist.append(line.rstrip('\n'))
-            #llist.append(reverse_xmas(line.rstrip('\n')))
-    #llist.append(up_down_xmas(llist))
     return llist
 
 def reverse_xmas(xl):
@@ -15,19 +12,6 @@ def reverse_xmas(xl):
     for x in xl:
         revlist.append(x[::-1])
     return revlist
-
-def up_down_xmas(xs):
-    # 12345
-    # 12345
-    # 12345
-    print("updownxmas")
-    new_lines = []
-    print(xs)
-    reversed = [list(y) for y in zip(*xs)]
-    for x in reversed:
-        new_lines.append(''.join(x))
-    print(new_lines)
-    return new_lines
 
 def checkforxmas(line):
     count = 0
@@ -37,8 +21,6 @@ def checkforxmas(line):
     return len(matches)
 
 def getmatrix(test):
-    #test = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['10', '11', '12']]
-    #test = ['MMMSXXMASM', 'MSAMXMSMSA', 'AMXSXMAAMM', 'MSAMASMSMX', 'XMASAMXAMM', 'XXAMMXXAMA', 'SMSMSASXSS', 'SAXAMASAAA', 'MAMMMXMMMM', 'MXMXAXMASX']
     max_col = len(test[0])
     max_row = len(test)
     cols = [[] for _ in range(max_col)]
@@ -55,7 +37,6 @@ def getmatrix(test):
             bdiag[x - y - min_bdiag].append(test[y][x])
 
     all_lines = []
-    all_lines_rev = []
     for x in cols:
         all_lines.append(''.join(x))
     for x in rows:
