@@ -10,8 +10,11 @@ def readData(file):
     #llist.append(up_down_xmas(llist))
     return llist
 
-def reverse_xmas(x):
-  return x[::-1]
+def reverse_xmas(xl):
+    revlist = []
+    for x in xl:
+        revlist.append(x[::-1])
+    return revlist
 
 def up_down_xmas(xs):
     # 12345
@@ -37,21 +40,24 @@ if (__name__ == "__main__"):
     print("Part Test Start")
     myInput1 = readData('D4TData.txt')
     print("Part Test Input Rows = " + str(myInput1))
-    rows = myInput1
     columns = up_down_xmas(myInput1)
     print("Part Test Input Columns = " + str(columns))
-    rows_rev = reverse_xmas(rows)
+    rows_rev = reverse_xmas(myInput1)
     columns_rev = reverse_xmas(columns)
+    print("Part Test Input Columns Reversed = " + str(columns_rev))
+    print("Part Test Input Rows reversed = " + str(rows_rev))
     xmas_count = 0
-    for lines in rows:
+    for lines in myInput1:
         xmas_count = xmas_count + checkforxmas(lines)
+    print("Part Test xmas Count Rows = " + str(xmas_count))
     for lines in columns:
         xmas_count = xmas_count + checkforxmas(lines)
+    print("Part Test xmas Count Cols = " + str(xmas_count))
     for lines in rows_rev:
         xmas_count = xmas_count + checkforxmas(lines)
+    print("Part Test xmas Count Rows reversed = " + str(xmas_count))
     for lines in columns_rev:
         xmas_count = xmas_count + checkforxmas(lines)
-    #print("up down lines reversed = " + str(new_lines))
-    print("Part Test Safe Report Count = " + str(xmas_count))
+    print("Part Test xmas Count Cols reversed = " + str(xmas_count))
 
     print("Part 1 Real Data")
